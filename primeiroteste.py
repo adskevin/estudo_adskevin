@@ -1,10 +1,18 @@
 contador = int(0)
 valor = 0
 sair = True
+nome = ""
+
+def leNome (str):
+    nome = input(str)
+    return nome;
+
 while sair:
-    valor = int(input())
-    if valor>60:
+    nome = leNome("Digite um nome: ")
+    if nome == "sair":
         sair = False
+    else:
+        print("Digite sair para sair: ")
     contador += 1
     print(contador)
 print("Saiu.")
