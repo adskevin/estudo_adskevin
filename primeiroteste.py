@@ -2,9 +2,10 @@ contador = int(0)
 valor = 0
 sair = True
 nome = ""
+nomes = []
 
 def leNome (str):
-    nome = input(str)
+    nomes [contador] = input(str)
     return nome;
 
 while sair:
