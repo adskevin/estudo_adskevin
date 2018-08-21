@@ -1,4 +1,5 @@
 finaliza = True
+limitePessoas = 2
 aNome = []
 aSalario = []
 def testeMenu(arg):
@@ -26,19 +27,36 @@ def testeMenu(arg):
 def finalizaPrograma():
     print("Entrou finaliza")
 
+def digitaSalario():
+    print("Entrou digitaSalario")
+    try:
+        salario = float(input("\nDigite o salário deste funcionário: R$ "))
+    except:
+        print("Erro, rente novamente.")
+        return digitaSalario
+    return salario
+
 def cadastra():
     global aNome
     global aSalario
-    try:
-        nome = str(input("\nDigite um nome: "))
-    except:
-        print("Erro, tente novamente.")
-        return cadastra();
-    aNome += [nome]
+    global limitePessoas
+    if len(aNome) < limitePessoas:
+        try:
+            nome = str(input("\nDigite um nome: "))
+        except:
+            print("Erro, tente novamente.")
+            return cadastra();
+        aNome += [nome]
+        aSalario += [digitaSalario()]
+
+    else: print("Lista de pessoas cheia!")
+
 
 def lista():
     global aNome
     print(aNome)
+    global aSalario
+    print(aSalario)
 
 def escolhaMenu():
     try:
